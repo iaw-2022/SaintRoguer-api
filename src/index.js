@@ -16,12 +16,12 @@ const swaggerSpec = {
             title: 'Art API',
             version: '1.0.0',
             description: 'API for Art',
+            contact: {
+                name: "SaintRoguer"
+            },
         },
         servers: [
-            {
-                url: 'http://localhost:9000',
-                //'https://trailerama-api.herokuapp.com/',
-            }
+            process.env.SERVERS
         ],
     },
     apis: [`${path.join(__dirname, './routes/*.js')}`],
