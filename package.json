@@ -1,0 +1,32 @@
+{
+  "name": "saintroguer-api",
+  "version": "1.0.0",
+  "description": "API using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iaw-2022/SaintRoguer-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iaw-2022/SaintRoguer-api/issues"
+  },
+  "homepage": "https://github.com/iaw-2022/SaintRoguer-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.0",
+    "pg": "^8.7.3",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
