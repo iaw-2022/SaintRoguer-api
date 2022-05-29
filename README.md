@@ -4,7 +4,7 @@ API using Node.js
 # Routes
 
 ## swagger
-- /api-docs -> swagger interface
+- **[/api-docs]((https://trailerama-api.herokuapp.com/api-docs)** -> swagger interface
 
 ## Arts 
 - **[/api/arts](https://trailerama-api.herokuapp.com/api/arts)** -> get type, for getting all arts.
