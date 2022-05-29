@@ -4,7 +4,8 @@
   "description": "API using Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "node index.js",
+    "start:dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,7 @@
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
