@@ -19,10 +19,8 @@ const swaggerSpec = {
             contact: {
                 name: "SaintRoguer"
             },
+            servers: [process.env.SERVERS],
         },
-        servers: [
-            process.env.SERVERS
-        ],
     },
     apis: [`${path.join(__dirname, './routes/*.js')}`],
 }
