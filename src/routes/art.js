@@ -162,6 +162,38 @@ router.get("/arts/:slug", (request, response) => {
             message: 'Slug must be a string'
         })
 });
+
+/**
+ * @swagger
+ * /api/last:
+ *  get:
+ *    summary: Get last ten arts
+ *    tags: [Arts]
+ *    responses:
+ *     '200':
+ *      description: An array of Arts
+ *      content:
+ *       application/json:
+ *          schema:
+ *           type: array
+ *           items:
+ *           $ref: '#/components/schemas/Art'
+ *    '400':
+ *       description: Error
+ *    '500':
+ *       description: Internal server error
+ */
+router.get("/last", (request, response) => {
+    pool.query('SELECT * FROM arts ORDER BY id DESC LIMIT 10', (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+});
+
+
+
 /**
  * @swagger
  * components:
@@ -197,6 +229,7 @@ router.get("/arts/:slug", (request, response) => {
  *         comment: "This is a great movie"
  *         rating: 5
  */
+
 
 
 /**
