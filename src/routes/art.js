@@ -1,9 +1,7 @@
 const express = require("express");
 const pool = require("../db");
 const router = express.Router();
-const { body } = require('express-validator');
 
-// get all art.
 /**
  * @swagger
  * components:
@@ -423,5 +421,49 @@ router.get("/arts/:slug/artists", (request, response) => {
             message: 'Slug must be a string'
         })
 });
+
+
+/**
+ * @swagger
+ * /api/arts-tag/{tag}:
+ *  get:
+ *     summary: Get arts by tag
+ *     tags: [Arts]
+ *     parameters:
+ *      - in: path
+ *        name: tag
+ *        schema:
+ *          type: integer
+ *        required: true
+ *        description: id of the tag
+ *     responses:
+ *      '200':
+ *          description: An array of Arts
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: array
+ *                      items:
+ *                      $ref: '#/components/schemas/Art'
+ *      '400':
+ *          description: Error
+ *      '500':
+ *          description: Internal server error
+ */
+router.get("/arts-tag/:tag", (request, response) => {
+    if (isNaN(request.params.tag))
+        response.status(400).json({
+            code: 400,
+            message: 'tag of id must be an Integer'
+        })
+    else
+        pool.query('SELECT * FROM arts WHERE id IN (SELECT art_id FROM art_tag WHERE tag_id = $1)', [request.params.tag], (error, results) => {
+            if (error) {
+                throw error
+            }
+            response.status(200).json(results.rows)
+        })
+
+})
 
 module.exports = router;

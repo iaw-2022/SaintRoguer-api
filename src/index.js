@@ -3,6 +3,7 @@ require('dotenv').config();
 const artsroutes = require('./routes/art');
 const favoritesroutes = require('./routes/favorite');
 const artistsroutes = require('./routes/artists');
+const tagsroutes = require('./routes/tag');
 
 const path = require("path");
 const cors = require('cors');
@@ -52,7 +53,7 @@ const port = process.env.PORT || 9000;
 app.use(express.json());
 app.use(cors());
 //app.use(jwtCheck);
-app.use('/api', artsroutes, favoritesroutes, artistsroutes);
+app.use('/api', artsroutes, favoritesroutes, artistsroutes, tagsroutes);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
 
 //routes
