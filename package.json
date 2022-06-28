@@ -19,13 +19,17 @@
   },
   "homepage": "https://github.com/iaw-2022/SaintRoguer-api#readme",
   "dependencies": {
+    "aws-jwt-verify": "^3.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
     "express-jwt": "^7.7.5",
     "express-jwt-permissions": "^1.3.6",
     "express-validator": "^6.14.0",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^2.1.3",
+    "npm": "^8.13.1",
     "pg": "^8.7.3",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.3.0"

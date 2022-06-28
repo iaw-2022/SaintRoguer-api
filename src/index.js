@@ -8,10 +8,6 @@ const tagsroutes = require('./routes/tag');
 const path = require("path");
 const cors = require('cors');
 
-var jwt = require('express-jwt');
-var jwks = require('jwks-rsa');
-var guard = require('express-jwt-permissions')();
-
 //swagger
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -31,18 +27,6 @@ const swaggerSpec = {
     apis: [`${path.join(__dirname, './routes/*.js')}`],
 }
 
-// Auth0
-/*var jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: 'https://dev-v0kfz1dk.us.auth0.com/.well-known/jwks.json'
-    }),
-    audience: 'https://trailerama-api.herokuapp.com/',
-    issuer: 'https://dev-v0kfz1dk.us.auth0.com/',
-    algorithms: ['RS256']
-});*/
 
 
 //settings
@@ -52,7 +36,6 @@ const port = process.env.PORT || 9000;
 //middlewares
 app.use(express.json());
 app.use(cors());
-//app.use(jwtCheck);
 app.use('/api', artsroutes, favoritesroutes, artistsroutes, tagsroutes);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
 
